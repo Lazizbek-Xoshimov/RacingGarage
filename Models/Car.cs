@@ -29,4 +29,21 @@ public class Car
             return $"{FuelLevel}% yoqilg'i qoldi.";
         }
     }
+
+    public double Rufuel(double amount)
+    {
+        while (amount > 0)
+        {
+            if (FuelLevel == 100)
+            {
+                Console.WriteLine("Yoqilg'i to'la.");
+                return FuelLevel;
+            }
+
+            FuelLevel ++;
+            amount --;
+        }
+
+        return FuelLevel;
+    }
 }
