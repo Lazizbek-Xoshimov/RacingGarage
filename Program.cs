@@ -43,7 +43,7 @@ public class Program
         foreach (Car car in cars)
         {
             Console.WriteLine(car.Model);
-            Console.WriteLine($"{car.Drive(10)}");
+            Console.WriteLine($"{car.Drive(distance)}");
             Console.WriteLine();
         }
 
@@ -53,7 +53,7 @@ public class Program
         foreach (Car car in cars)
         {
             Console.WriteLine(car.Model);
-            Console.WriteLine($"{amount} yoqilg'i quygandan so'ng: {car.Rufuel(5)}% yoqilg'i bo'ldi.");
+            Console.WriteLine($"{amount} yoqilg'i quygandan so'ng: {car.Rufuel(amount)}% yoqilg'i bo'ldi.");
             Console.WriteLine();
         }
     }
