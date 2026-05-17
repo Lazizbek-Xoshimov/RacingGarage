@@ -4,8 +4,37 @@ public class Car
 {
     public string Brand { get; set; }
     public string Model { get; set; }
-    public int Year { get; set; }
-    public double FuelLevel { get; set; }
+    public int Year {
+        get
+        {
+            return this.Year;
+        }
+        set
+        {
+            if (value < 1900)
+                Console.WriteLine("Juda eski mashina.");
+            else if (value > DateTime.Now.Year)
+                Console.WriteLine("Hali bunday mashina chiqarilmagan.");
+            else
+                this.Year = value;
+        }
+    }
+    public double FuelLevel 
+    {
+        get
+        {
+            return this.FuelLevel;
+        }
+        set
+        {
+            if (value < 0)
+                Console.WriteLine("Yoqilg'i miqdori manfiy qiymatni olmaydi.");
+            else if (value > 100)
+                Console.WriteLine("Yoqilg'i 100% dan ko'p bo'la olmaydi.");
+            else
+                this.FuelLevel = value;
+        } 
+    }
 
     public void ShowInfo()
     {
