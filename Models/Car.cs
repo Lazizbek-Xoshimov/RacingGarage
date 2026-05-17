@@ -4,10 +4,12 @@ public class Car
 {
     public string Brand { get; set; }
     public string Model { get; set; }
+    private int _year;
+    private double _fuelLevel;
     public int Year {
         get
         {
-            return this.Year;
+            return this._year;
         }
         set
         {
@@ -16,14 +18,14 @@ public class Car
             else if (value > DateTime.Now.Year)
                 Console.WriteLine("Hali bunday mashina chiqarilmagan.");
             else
-                this.Year = value;
+                this._year = value;
         }
     }
     public double FuelLevel 
     {
         get
         {
-            return this.FuelLevel;
+            return this._fuelLevel;
         }
         set
         {
@@ -32,7 +34,7 @@ public class Car
             else if (value > 100)
                 Console.WriteLine("Yoqilg'i 100% dan ko'p bo'la olmaydi.");
             else
-                this.FuelLevel = value;
+                this._fuelLevel = value;
         } 
     }
 
