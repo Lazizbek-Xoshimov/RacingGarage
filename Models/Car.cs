@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace RacingGarage.Models;
 
 public class Car
@@ -73,7 +75,7 @@ public class Car
     public void ShowInfo()
     {
         Console.WriteLine($"Mashina brendi: {this.Brand}\nMashina modeli: {this.Model}" + 
-            $"\nMashina ishlab chiqarilgan yili: {this.Year}\nMashina yoqilg'isi: {this.FuelLevel}");
+            $"\nMashina ishlab chiqarilgan yili: {this.Year}\nMashina yoqilg'isi: {this.FuelLevel}\nMashina maksimal tezligi: {this.Speed}");
     }
 
     public string Drive()
@@ -109,5 +111,127 @@ public class Car
         }
 
         return FuelLevel;
+    }
+
+    private static void RacingLight()
+    {
+        DateTime waitingTime = DateTime.Now.AddSeconds(5);
+        int count = DateTime.Now.Second;
+
+        while (count < waitingTime.Second)
+        {
+            if (count == DateTime.Now.Second)
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("O|O|O|O|O");
+                Console.ResetColor();
+                Console.WriteLine("O|O|O|O|O");
+                Console.WriteLine("O|O|O|O|O");
+                Console.WriteLine("\nDiqqat!");
+                count ++;
+            }
+        }
+
+        waitingTime = DateTime.Now.AddSeconds(5);
+        count = DateTime.Now.Second;
+
+        while (count < waitingTime.Second)
+        {
+            if (count == DateTime.Now.Second)
+            {
+                Console.Clear();
+                Console.WriteLine("O | O | O | O | O");
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("O | O | O | O | O");
+                Console.ResetColor();
+                Console.WriteLine("O | O | O | O | O");
+                Console.WriteLine("\nTayyorlaning!");
+                count ++;
+            }
+        }
+
+        waitingTime = DateTime.Now.AddSeconds(5);
+        count = DateTime.Now.Second;
+
+        while (count < waitingTime.Second)
+        {
+            if (count == DateTime.Now.Second)
+            {
+                Console.Clear();
+                Console.WriteLine("O | O | O | O | O");
+                Console.WriteLine("O | O | O | O | O");
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("O | O | O | O | O");
+                Console.ResetColor();
+                Console.WriteLine("\nOLG'A!!!");
+                count ++;
+            }
+        }
+    }
+
+    public static Car ComparisonSpeed(Car[] cars)
+    {
+        Car fastestCar = new Car();
+        fastestCar.Speed = 0;
+
+        foreach (Car car in cars)
+        {
+            if (fastestCar.Speed < car.Speed)
+                fastestCar = car;
+        }
+
+        return fastestCar;
+    }
+
+    public static void RacingCars(Car[] cars)
+    {
+        foreach (Car car in cars)
+        {
+            if (car.FuelLevel > 0)
+                Console.WriteLine($"{car.Model} poyga uchun tayyor...");
+            else
+                Console.WriteLine($"{car.Model} yoqilg'isi yetarli emas.");
+        }
+
+        RacingLight();
+
+        int cursor = 10;
+
+        Console.Clear();
+        for (int i = 0; i < 20; i++)
+        {
+            if (cursor == 10)
+            {
+                Console.WriteLine($"{cars[0].Model}");
+                Console.WriteLine($"{cars[1].Model}");
+                Console.WriteLine($"{cars[2].Model}");
+            }
+
+            DateTime waitingTime = DateTime.Now.AddSeconds(2);
+            int count = DateTime.Now.Second;
+
+            while (count < waitingTime.Second)
+            {
+                if (count == DateTime.Now.Second)
+                {
+                    Console.SetCursorPosition(cursor, 0);
+                    Console.Write("*");
+                    Console.SetCursorPosition(cursor, 1);
+                    Console.Write("*");
+                    Console.SetCursorPosition(cursor, 2);
+                    Console.Write("*");
+                    
+                    count ++;
+                }
+            }
+
+            cursor ++;
+        }
+
+        Console.WriteLine($"\n{ComparisonSpeed(cars).Model} yutdi.");
     }
 }

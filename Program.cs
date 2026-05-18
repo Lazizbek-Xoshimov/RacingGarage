@@ -13,21 +13,24 @@ public class Program
                 Brand = "Honda",
                 Model = "Civic",
                 Year = 1972,
-                FuelLevel = 50
+                FuelLevel = 50,
+                Speed = 170
             },
             new Car()
             {
                 Brand = "Ford",
                 Model = "F-Series",
                 Year = 1948,
-                FuelLevel = 100
+                FuelLevel = 100,
+                Speed = 112
             },
             new Car()
             {
                 Brand = "Toyota",
                 Model = "Corolla",
                 Year = 1966,
-                FuelLevel = 0
+                FuelLevel = 0,
+                Speed = 125
             }
         };
 
@@ -54,5 +57,16 @@ public class Program
             Console.WriteLine($"{amount} yoqilg'i quygandan so'ng: {car.Rufuel(amount)}% yoqilg'i bo'ldi.");
             Console.WriteLine();
         }
+
+        Console.WriteLine("Mashinalarni poyga qildirmoqchimisiz?");
+        Console.Write("(ha/yo'q): ");
+        bool isRace = Console.ReadLine() == "ha" ? true : false;
+
+        if (isRace)
+        {
+            Car.RacingCars(cars);
+        }
+        else 
+            Console.WriteLine("Mashinalar hali ham garajda.");
     }
 }
