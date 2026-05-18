@@ -142,12 +142,12 @@ public class Car
             if (count == DateTime.Now.Second)
             {
                 Console.Clear();
-                Console.WriteLine("O | O | O | O | O");
+                Console.WriteLine("O|O|O|O|O");
                 Console.BackgroundColor = ConsoleColor.Yellow;
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine("O | O | O | O | O");
+                Console.WriteLine("O|O|O|O|O");
                 Console.ResetColor();
-                Console.WriteLine("O | O | O | O | O");
+                Console.WriteLine("O|O|O|O|O");
                 Console.WriteLine("\nTayyorlaning!");
                 count ++;
             }
@@ -161,11 +161,11 @@ public class Car
             if (count == DateTime.Now.Second)
             {
                 Console.Clear();
-                Console.WriteLine("O | O | O | O | O");
-                Console.WriteLine("O | O | O | O | O");
+                Console.WriteLine("O|O|O|O|O");
+                Console.WriteLine("O|O|O|O|O");
                 Console.BackgroundColor = ConsoleColor.Green;
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine("O | O | O | O | O");
+                Console.WriteLine("O|O|O|O|O");
                 Console.ResetColor();
                 Console.WriteLine("\nOLG'A!!!");
                 count ++;
@@ -202,7 +202,7 @@ public class Car
         int cursor = 10;
 
         Console.Clear();
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
             if (cursor == 10)
             {
@@ -219,17 +219,17 @@ public class Car
                 if (count == DateTime.Now.Second)
                 {
                     Console.SetCursorPosition(cursor, 0);
-                    Console.Write("*");
+                    Console.Write("**");
                     Console.SetCursorPosition(cursor, 1);
-                    Console.Write("*");
+                    Console.Write("**");
                     Console.SetCursorPosition(cursor, 2);
-                    Console.Write("*");
+                    Console.Write("**");
                     
                     count ++;
                 }
             }
 
-            cursor ++;
+            cursor += 2;
         }
 
         Console.WriteLine($"\n{ComparisonSpeed(cars).Model} yutdi.");
