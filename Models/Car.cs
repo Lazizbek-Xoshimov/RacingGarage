@@ -5,7 +5,6 @@ public class Car
     public string Brand { get; set; }
     public string Model { get; set; }
     private int _year;
-    private double _fuelLevel;
     public int Year {
         get
         {
@@ -21,6 +20,7 @@ public class Car
                 this._year = value;
         }
     }
+    private double _fuelLevel;
     public double FuelLevel 
     {
         get
@@ -37,13 +37,46 @@ public class Car
                 this._fuelLevel = value;
         } 
     }
+    private int _speed;
+    public int Speed
+    {
+        get
+        {
+            return this._speed;
+        }
+        set
+        {
+            if (value < 0)
+                Console.WriteLine("Tezlik manfiy qiymat olmaydi.");
+            else if (value > 250)
+                Console.WriteLine("Mashina bunday tezlikda yura olmaydi.");
+            else
+                this._speed = value;
+        }
+    }
+    private int _distance;
+    public int Distance
+    {
+        get
+        {
+            return this._distance;
+        }
+        set
+        {
+            if (value < 0)
+                Console.WriteLine("Masofa manfiy qiymat olishi mumkin emas.");
+            else 
+                this._distance = value;
+        }
+    }
 
     public void ShowInfo()
     {
-        Console.WriteLine($"Mashina brendi: {this.Brand}\nMashina modeli: {this.Model}\nMashina ishlab chiqarilgan yili: {this.Year}\nMashina yoqilg'isi: {this.FuelLevel}");
+        Console.WriteLine($"Mashina brendi: {this.Brand}\nMashina modeli: {this.Model}" + 
+            $"\nMashina ishlab chiqarilgan yili: {this.Year}\nMashina yoqilg'isi: {this.FuelLevel}");
     }
 
-    public string Drive(int distance)
+    public string Drive()
     {
         if (FuelLevel <= 0)
         {
@@ -51,10 +84,10 @@ public class Car
         }
         else
         {
-            while (distance >= 10)
+            while (Distance >= 10)
             {
                 FuelLevel --;
-                distance -= 10;
+                Distance -= 10;
             }
 
             return $"{FuelLevel}% yoqilg'i qoldi.";
@@ -64,7 +97,7 @@ public class Car
     public double Rufuel(double amount)
     {
         while (amount > 0)
-        {
+        {   
             if (FuelLevel == 100)
             {
                 Console.WriteLine("Yoqilg'i to'la.");

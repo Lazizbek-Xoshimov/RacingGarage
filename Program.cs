@@ -37,22 +37,20 @@ public class Program
             Console.WriteLine();
         }
 
-        Console.Write("Ushbu mashinalar bilan necha km yurmoqchiligingizni kiriting: ");
-        int distance = int.Parse(Console.ReadLine());
 
         foreach (Car car in cars)
         {
-            Console.WriteLine(car.Model);
-            Console.WriteLine($"{car.Drive(distance)}");
+            Console.Write($"{car.Model} bilan necha km yurmoqchisiz: ");
+            car.Distance = int.Parse(Console.ReadLine());
+            Console.WriteLine($"{car.Drive()}");
             Console.WriteLine();
         }
 
-        Console.Write("Ushbu mashinalarga qancha yoqilg'i quymoqchi ekanligingizni kiriting: ");
-        double amount = double.Parse(Console.ReadLine());
 
         foreach (Car car in cars)
         {
-            Console.WriteLine(car.Model);
+            Console.Write($"{car.Model} ga qancha yoqilg'i quymoqchisiz: ");
+            double amount = double.Parse(Console.ReadLine());
             Console.WriteLine($"{amount} yoqilg'i quygandan so'ng: {car.Rufuel(amount)}% yoqilg'i bo'ldi.");
             Console.WriteLine();
         }
